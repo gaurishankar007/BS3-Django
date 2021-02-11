@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+    <button type="button" onclick="alert('Hello Everyone !!!')">Click</button>
+    <h1 id="test" onmouseover="myFunction()"
+    onmouseout="myFunction1()" style="background:aqua; width:200px;"
+    >Welcome</h1>
+
+    <input type="number" id="user_input"/>
+    <input type="number" id="user_input1"/>
+    <button type="button" onclick="onButtonClick('+')">Add</button>
+    <button type="button" onclick="onButtonClick('*')">Multiply</button>
+    <button type="button" onclick="onButtonClick('-')">Subtract</button>
+    <button type="button" onclick="onButtonClick('/')">Divide</button> <br/> <br/>
+    <button type="button" onclick="variableDatatypeChecker()">Check</button>
+    <!--
+    variable
+    datatype
+    operator (+ - / *)Arithmetic (&& || !)Logical (===(datatype comparator) == > < <= >=)comparison (=)assignment (+)concatenation
+    conditional statements
+    looping statements
+    array
+    function
+    json(javascript Object Notation)
+    -->
+    <Script>
+        //javascript can manipulate content, DOM, style, attribute
+        /*
+        on user's actions (events)
+        --------------------------
+        onload onmouseover onmouseout onclick onfocus onfocusout 
+        onblur onchange onselect onchecked onkeyup onkeydown
+        */
+       /*
+       print in Javascript
+       -------------------
+       document.write('Hello');
+       alert('Hello')
+       console.log('hello')
+       */
+        var my_var="Hello";
+        var my_var1="Hello everyone";
+        var my_num=100;
+        var my_num1=100.1;
+
+        document.write('This is Javascript !');
+        console.log('This is console output.');
+
+        function myFunction()
+        {
+            document.getElementById('test').innerHTML=my_var;
+        }
+
+        function myFunction1()
+        {
+            document.getElementById('test').innerHTML=my_var1;
+        }
+
+        function onButtonClick(operation)
+        {
+            var user_input= document.getElementById('user_input').value;
+            var user_input1= document.getElementById('user_input1').value;
+            if(user_input=='' || user_input1=='')
+            {
+                alert('please enter a number');
+            }
+            else
+            {
+                switch(operation) {
+                    case '+':
+                        alert(Number(user_input)+Number(user_input1));
+                        break;
+                    case '*':
+                        alert(Number(user_input)*Number(user_input1));
+                        break;
+                    case '-':
+                       alert(Number(user_input)-Number(user_input1));
+                       break;
+                    case '/':
+                       alert(Number(user_input)/Number(user_input1));
+                       break;
+                }
+            }
+        }
+
+        function variableDatatypeChecker()
+        {
+            if(my_num===my_num1)
+            {
+                alert('true '+my_num+'='+my_num1)
+            }
+            else
+            {
+                alert('false '+my_num+'!='+my_num1)
+            }
+        }
+    </Script>
+</body>
+</html>

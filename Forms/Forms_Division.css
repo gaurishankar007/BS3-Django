@@ -1,0 +1,77 @@
+.frm-div
+{
+    margin: 10px;
+}
+
+label
+{
+    color:black;
+    float: left;
+    display: inline-block; /*inline, block, inline-block*/
+    width: 100px;
+}
+
+.opt-lbl
+{
+    color:green;
+    float:none;
+    width:auto;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"],
+input[type="number"], input[type="url"], input[type="file"], select
+{
+    background-color:lightblue;
+    border: 3px solid darkorange;
+    border-radius: 5px;
+    height: 30px;
+    color: blue;
+    width: 250px;
+    padding-left: 10px;
+}
+
+textarea
+{
+    background-color:lightblue;
+    border: 3px solid darkorange;
+    border-radius: 5px;
+    color: blue;
+    width: 250px;
+}
+
+input[type="submit"]
+{
+    font-size:20px;
+    color:white;
+    background-color: green;
+    border: none;
+    border-radius: 20px;
+    margin-right:10px;
+    padding:10px;
+
+}
+
+button
+{
+    font-size:20px;
+    background-color: red;
+    color:white;
+    border: none;
+    border-radius: 20px;
+    margin-right:10px;
+    padding:10px;
+}
+
+ul
+{
+    /* list-style: none; */
+    list-style-type: circle;
+    list-style-image: url(arrow.png);
+    list-style-position: inside;
+}
+
+li
+{
+    color:red;
+    font-size: 20px;
+}

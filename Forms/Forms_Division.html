@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms_Division</title>
+    <link href="Forms_Division.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <form method="post" action="abc.php">
+            <div class="frm-div">
+                <label>Name: </label>
+                <input type="text" name="Name" placeholder="Enter your Name" maxlength="25" required/>
+            </div>
+            <div class="frm-div">
+                <label>Address: </label>
+                <input type="text" name="Address" placeholder="Enter your Address" required/></td>
+            </div>
+            <div class="frm-div">
+                <label>DOB: </label>
+                <input type="date" max="2020-12-03"/>
+            </div>
+            <div class="frm-div">
+                <label >Gender: </label>
+                <input type="radio" name="Gender" value="Male" id="Male" checked/>
+                <label for="Male" class="opt-lbl">Male</label>
+                <input type="radio" name="Gender" value="Female" id="Female"/>
+                <label for="Female" class="opt-lbl">Female</label>
+                <input type="radio" name="Gender" value="Other" id="Gender"/>
+                <label for="Gender" class="opt-lbl">Other</label>
+            </div>
+            <div class="frm-div">
+                <label>Username: </label>
+                <input type="text" name="Username" value="Enter your username" autocomplete="off" readonly /></td>
+                <!--autocomplete off means previous register username will not be shown-->
+            </div>
+            <div class="frm-div">
+                <label>Password: </label>
+                <input type="Password" name="Password" />
+            </div>
+            <div class="frm-div">
+                <label>Mobile: </label>
+                <input type="number" name="Mobile" max="9999999999" min="9000000000" maxlength="10" required/></td>
+            </div>
+            <div class="frm-div">
+                <label>Email: </label>
+                <input type="email" name="Email"  required/>
+            </div>
+            <div class="frm-div">
+                <label>Website: </label>
+                <input type="url"/>
+            </div>
+            <div class="frm-div">
+                <label>Hobbies: </label>
+                    <input type="checkbox" name="Hobbies[]" value="Music" id="Music"/>
+                    <label for="Music" class="opt-lbl">Music</label>
+                    <input type="checkbox" name="Hobbies[]" value="Travel" id="Travel" checked/>
+                    <label for="Travel" class="opt-lbl">Travel</label>
+                    <input type="checkbox" name="Hobbies[]" value="Photography" id="Photography"/>
+                    <label for="Photography" class="opt-lbl">Photography</label>
+                    <input type="checkbox" name="Hobbies[]" value="Gaming" id="Gaming"/>
+                    <label for="Gaming" class="opt-lbl">Gaming</label>
+                    <input type="checkbox" name="Hobbies[]" value="Yoga" id="Yoga"/>
+                    <label for="Yoga" class="opt-lbl">Yoga</label>
+            </div>
+            <div class="frm-div">
+                <label>Country: </label>
+                    <select name="Country">
+                        <option value="Nepal">Nepal</option>
+                        <option value="UK" selected>UK</option>
+                        <option value="USA">USA</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+            </div>
+            <div class="frm-div">
+                <label>Comments: </label>
+                <textarea rows="10" col="10"></textarea>
+            </div>
+            <div class="frm-div">
+                <label>Rating: </label>
+                <input type="range" name="Rating" maxlength="10"/>
+            </div>
+            <div class="frm-div">
+                <label>Image: </label>
+                <input type="file" name="Image"/>
+            </div>
+            <div class="frm-div">
+                    <input type="submit" value="register" />
+                    <button type="reset">Reset</button>
+                    <button type="button">Click</button>
+            </div>
+    </form>
+
+    <ul>
+        <li>Web</li>
+        <li>Ethics</li>
+        <li>Usability</li>
+        <li>Algorithm</li>
+    </ul>
+</body>
+</html>

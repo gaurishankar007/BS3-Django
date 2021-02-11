@@ -1,0 +1,38 @@
+table, th, td{
+    border: 1px solid black;
+}
+
+.red{
+    background-color: red;
+    font-size:8px
+}
+
+.yellow{
+     background-color: yellow;
+     font-size:11px
+}
+
+#green{
+    background-color: green;
+    font-size: 13px;
+}
+
+#cyan{
+    background-color: cyan;
+    font-size: 16px;
+}
+
+#purple{
+    background-color: purple;
+    font-size: 18px;
+}
+
+#yellow{
+    background-color: yellow;
+    font-size: 24px;
+}
+
+#red{
+    background-color: red;
+    font-size: 30px;
+}

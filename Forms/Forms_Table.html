@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms_Table</title>
+</head>
+<body>
+    <form method="post" action="abc.php">
+        <table>
+            <tr>
+                <td><label>Name: </label></td>
+                <td><input type="text" name="Name" placeholder="Enter your Name" maxlength="25" required/></td>
+            </tr>
+            <tr>
+                <td><label>Address: </label></td>
+                <td><input type="text" name="Address" placeholder="Enter your Address" required/></td>
+            </tr>
+            <tr>
+                <td><label>DOB: </label></td>
+                <td><input type="date" max="2020-12-03"/></td>
+            </tr>
+            <tr>
+                <td><label>Gender: </label></td>
+                <td>
+                    <input type="radio" name="Gender" value="Male" id="Male" checked/>
+                    <label for="Male">Male</label>
+                    <input type="radio" name="Gender" value="Female" id="Female"/>
+                    <label for="Female">Female</label>
+                    <input type="radio" name="Gender" value="Other" id="Gender"/>
+                    <label for="Gender">Other</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Username: </label></td>
+                <td><input type="text" name="Username" value="Enter your username" autocomplete="off" readonly /></td>
+                <!--autocomplete off means previous register username will not be shown-->
+            </tr>
+            <tr>
+                <td><label>Password: </label></td>
+                <td><input type="Password" name="Password" /></td>
+            </tr>
+            <tr>
+                <td><label>Mobile: </label></td>
+                <td><input type="number" name="Mobile" max="9999999999" min="9000000000" maxlength="10" required/></td>
+            </tr>
+            <tr>
+                <td><label>Email: </label></td>
+                <td><input type="email" name="Email"  required/></td>
+            </tr>
+            <tr>
+                <td><label>Website: </label></td>
+                <td><input type="url"/></td>
+            </tr>
+            <tr>
+                <td><label>Hobbies: </label></td>
+                <td>
+                    <input type="checkbox" name="Hobbies[]" value="Music" id="Music"/>
+                    <label for="Music">Music</label>
+                    <input type="checkbox" name="Hobbies[]" value="Travel" id="Travel" checked/>
+                    <label for="Travel">Travel</label>
+                    <input type="checkbox" name="Hobbies[]" value="Photography" id="Photography"/>
+                    <label for="Photography">Photography</label>
+                    <input type="checkbox" name="Hobbies[]" value="Gaming" id="Gaming"/>
+                    <label for="Gaming">Gaming</label>
+                    <input type="checkbox" name="Hobbies[]" value="Yoga" id="Yoga"/>
+                    <label for="Yoga">Yoga</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Country: </label></td>
+                <td>
+                    <select name="Country">
+                        <option value="Nepal">Nepal</option>
+                        <option value="UK" selected>UK</option>
+                        <option value="USA">USA</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Comments: </label></td>
+                <td><textarea rows="10" col="10"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Rating: </label></td>
+                <td><input type="range" name="Rating" maxlength="10"/></td>
+            </tr>
+            <tr>
+                <td><label>Image: </label></td>
+                <td><input type="file" name="Image">/td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="register" />
+                </td>
+                <td>
+                    <button type="reset">Reset</button>
+                    <button type="button">Click</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

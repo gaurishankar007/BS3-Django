@@ -1,0 +1,380 @@
+<!DOCTYPE>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript</title>
+    </head>
+    <body>
+        <h1 id="my_heading">Welcome</h1>
+        <h1 class="my_class">Welcome</h1>
+        <h1 class="my_class">Welcome</h1>
+        <div id='test'>
+            <button type="button" onclick="counter()">Count</button>
+            <button type="button" onclick="reset()">Reset</button>
+            <p>0</p>
+            <button type="button" onclick="lis()">Generate</button>
+            <button type="button" onclick="reset1()">Reset</button>
+            <ul></ul>
+        </div>
+        <div>
+            <input type="number" onkeyup="keyup(this.value)"/>
+            <button type='button' onclick='show()'>Show Day</button>
+            <p></p>
+        </div>
+        <div>
+            <input type="number" onfocusout="alert('out of focus')"/>
+            <button type='button' onclick='times_table()'>Produce</button>
+            <p></p>
+        </div>
+        <div>
+            <table border=1 style="font-size:20px;">
+            </table>
+        </div>
+        <h1 id="show">Javascript</h1>
+        <select id="text-color" onchange="change_color(1, this.value)">
+            <option value="">Text color</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Brown">Brown</option>
+            <option value="Orange">Orange</option>
+        </select>
+        <select id="background-color" onchange="change_color(2, this.value)">
+            <option value="">Background color</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Brown">Brown</option>
+            <option value="Orange">Orange</option>
+        </select>
+        <select id="Font-size" onchange="change_color(3, this.value)">
+            <option value="">Font-Size</option>
+            <option value="10px">10px</option>
+            <option value="20px">20px</option>
+            <option value="30px">30px</option>
+            <option value="40px">40px</option>
+            <option value="50px">50px</option>
+        </select>
+        <select id="Font-family" onchange="change_color(4, this.value)">
+            <option value="">Font-Family</option>
+            <option value="Arial">Arial</option>
+            <option value="Chiller">Chiller</option>
+            <option value="Times">Times</option>
+            <option value="Serif">serif</option>
+            <option value="Helvetica">Helvetica</option>
+        </select>
+        <select id="country">
+            <option value="">Choose Country</option>
+        </select>
+        <h1 id="cnt">a</h1>
+        <button type="button" onclick="exchange('Next')">Next</button>
+        <button type="button" onclick="exchange('Previous')">Previous</button>
+        <div>
+            <h1 id="questions">Questions</h1>
+            <form name='ans-frm'> 
+                <input type="radio" id="first" name="ans" checked/><label for="first" id="first-opt"></label><br />
+                <input type="radio" id="second" name="ans" /><label for="second" id="second-opt"></label><br />
+                <input type="radio" id="third" name="ans" /><label for="third" id="third-opt"></label><br />
+                <input type="radio" id="fourth" name="ans" /><label for="fourth" id="fourth-opt"></label><br />
+            </form>
+            <button type="button" id="previous" onclick="onPrevious()">Previous</button>
+            <button type="button" id="next" onclick="onNext()">next</button> 
+            <button type="button" id="show_result" onclick="onNext()">Show Result</button>            
+        </div>
+    </body>
+    <script>
+
+        function keyup(val)
+        {
+            console.log(val);
+        }
+        //console.log('Hello');
+        //alert('hello');
+        //document.write('Hello');
+        //document.getElementById('my_heading').innerHTML='Hello';
+        var name='Aakash';
+        var names=['Aakash', 'Prabal', 'Manish', 'Pujan'];
+        document.getElementsByTagName('h1')[0].innerHTML='Hello';
+        document.getElementsByClassName('my_class')[0].innerHTML='Everyone';
+        //document.getElementById('test').innerHTML="<h1>Hi</h1>";
+
+        var count=0;
+        function counter()
+        {
+            if(count<10)
+            {
+                count+=1;
+                document.getElementsByTagName('p')[0].innerHTML=count;
+            }
+        }
+        function reset()
+        {
+            count=0;
+            document.getElementsByTagName('p')[0].innerHTML=count;
+            lis_num=0;
+            document.getElementsByTagName('ul')[0].innerHTML='';
+        }
+
+        var lis_num=0;
+        function lis()
+        {        
+            if(lis_num<10)
+            {
+                lis_num++;
+                document.getElementsByTagName('ul')[0].innerHTML+='<li>'+lis_num+'</li>';
+            }
+        }
+        function reset1()
+        {
+            lis_num=0;
+            document.getElementsByTagName('ul')[0].innerHTML='';
+        }
+        function show()
+        {
+            var num=document.getElementsByTagName('input')[0].value;
+            switch(Number(num))
+            {
+                case 1:
+                    alert('Sunday');
+                    break;
+                case 2:
+                    alert('Monday');
+                    break;
+                case 3:
+                    alert('Tuesday');
+                    break;
+                case 4:
+                    alert('Wednesday');
+                    break;
+                case 5:
+                    alert('Thursday');
+                    break;
+                case 6:
+                    alert('Friday');
+                    break;
+                case 7:
+                    alert('Saturday');
+                    break;
+                default:
+                    alert('Please enter number between 1-7');
+            }
+        }
+        function times_table()
+        {
+            var num=document.getElementsByTagName('input')[1].value;
+            document.getElementsByTagName('table')[0].innerHTML='';
+            for(i=1; i<=Number(num); i++)
+            {
+                document.getElementsByTagName('table')[0].innerHTML+='<tr>';
+                for(j=1; j<=10; j++)
+                {
+                    document.getElementsByTagName('tr')[i-1].innerHTML+='<td>'+i+'x'+j+'='+i*j+'</td>';
+                }
+                document.getElementsByTagName('table')[0].innerHTML+='</tr>';
+            }
+        }
+        function change_color(val, val1)
+        {
+            var heading=document.getElementById('show').style;
+            if(val==1)
+            {
+               heading.color=val1;
+            }
+            else if(val==2)
+            {
+                heading.backgroundColor=val1;
+            }
+            else if(val==3)
+            {
+                heading.fontSize=val1;
+            }
+            else if(val==4)
+            {
+                heading.fontFamily=val1;
+            }
+        }
+
+        var Countries = ['Afghanistan', 'Åland Islands', 'Albania', 'Algeria',
+         'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 
+         'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 
+         'Bangladesh', 'Barbados', 'Bahamas', 'Bahrain', 'Belarus', 'Belgium', 
+         'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 
+         'Botswana', 'Brazil', 'British Indian Ocean Territory', 'British Virgin Islands', 
+         'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burma', 'Burundi', 'Cambodia', 
+         'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 
+         'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 
+         'Colombia', 'Comoros', 'Congo-Brazzaville', 'Congo-Kinshasa', 'Cook Islands', 
+         'Costa Rica', '$_[', 'Croatia', 'Curaçao', 'Cyprus', 'Czech Republic', 'Denmark', 
+         'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 
+         'El Salvador', 'Egypt', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 
+         'Falkland Islands', 'Faroe Islands', 'Federated States of Micronesia', 'Fiji', 
+         'Finland', 'France', 'French Guiana', 'French Polynesia', 'French Southern Lands', 
+         'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 
+         'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 
+         'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard and McDonald Islands',
+         'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iraq', 
+         'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 
+         'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos',
+          'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania',
+          'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 
+          'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 
+          'Mauritius', 'Mayotte', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro',
+           'Montserrat', 'Morocco', 'Mozambique', 'Namibia', 'Nauru', 'Nepal', 
+           'Netherlands', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria',
+            'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 
+            'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru',
+             'Philippines', 'Pitcairn Islands', 'Poland', 'Portugal', 'Puerto Rico', 
+             'Qatar', 'Réunion', 'Romania', 'Russia', 'Rwanda', 'Saint Barthélemy', 
+             'Saint Helena', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Martin', 
+             'Saint Pierre and Miquelon', 'Saint Vincent', 'Samoa', 'San Marino', 
+             'São Tomé and Príncipe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles',
+              'Sierra Leone', 'Singapore', 'Sint Maarten', 'Slovakia', 'Slovenia', 
+              'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia', 'South Korea', 
+              'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen', 'Sweden', 
+              'Swaziland', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 
+              'Thailand', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia',
+               'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda',
+                'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 
+                'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Vietnam', 'Venezuela',
+                 'Wallis and Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe'];
+    
+        for(i=0; i<Countries.length; i++)
+        {
+            document.getElementById('country').innerHTML+="<option value="+Countries[i]+">"+Countries[i]+"</option>";
+        }
+
+        /*
+        //forEach Loop
+        Counties.forEach(countryLoop)  // For each value of countries execute countryLoop function
+        function countryLoop(item, index)
+        {
+            document.getElementById('').innerHTML+=item;
+        }*/
+
+        var index=0;
+        function exchange(parameter)
+        {
+            if(parameter=='Next')
+            {
+               if(index<Countries.length-1)
+               {
+                index++;
+               }
+               else
+               {
+                   index=0;
+               }
+            }
+            else if(parameter=='Previous')
+            {
+                if(index>0)
+                {
+                    index--;
+                }
+                else
+                {
+                    index=Countries.length-1;
+                }
+            }
+            document.getElementById('cnt').innerHTML=Countries[index];
+        }
+        document.getElementById('cnt').innerHTML=Countries[index];
+
+        var questions = ['What is the capital city of Nepal?', 'What is the Height of Mt. Everest?',
+                        'Who is the first prime minister of Nepal?','Which is the longest river of Nepal?'];
+        var answers = [['Pokhara', 'Kathmandu', 'Nepalgunj', 'Ilam'], ['8848m', '8488m', '8848.86m', '8850m'],
+                        ['BP Koirala', 'Girija Pd. Koiraala', 'Sher Bd. Deuwa', 'Bhimsen Thapa'],
+                        ['Karnali', 'Koshi', 'Narayani', 'Trishuli']];
+        var correct_answers = ['Kathmandu', '8848m', 'BP Koirala', 'Karnali'];
+        var user_answers = [];
+        var i = 0;
+        var result = 0;
+        document.getElementById('previous').hidden=true;
+        document.getElementById('show_result').hidden=true;
+        setValues();
+
+        function onNext()
+        {
+            /*
+            radios=document.getElementsByName('ans');
+            for(j=0; j<radios.length; j++)
+            {
+                if(radios[i].checked==true)
+                {
+                    user_answers[i]=radios[j].value;
+                }
+            }
+            */
+            user_answers[i]=document.forms['ans-frm']['ans'].value;
+            console.log(user_answers)
+            document.getElementById('previous').hidden=false;
+            if(i==questions.length-2)
+            {
+                document.getElementById('next').hidden=true;
+                document.getElementById('show_result').hidden=false;
+            }
+            if(i < questions.length - 1)
+            {
+                i++;
+            }
+            else
+            {
+                showResult();
+            }
+            setValues();
+        }
+        function onPrevious()
+        {
+            document.getElementById('next').hidden=false;
+            document.getElementById('show_result').hidden=true;
+            if(i==1)
+            {
+                document.getElementById('previous').hidden=true;
+            }
+            if(i > 0)
+            {
+                i--;
+            }
+            setValues();
+        }
+        function setValues()
+        {
+            document.getElementById('questions').innerHTML = (i+1)+'. '+questions[i];
+
+            document.getElementById('first-opt').innerHTML = answers[i][0];
+            document.getElementById('second-opt').innerHTML = answers[i][1];
+            document.getElementById('third-opt').innerHTML = answers[i][2];
+            document.getElementById('fourth-opt').innerHTML = answers[i][3];
+            
+            document.getElementById('first').value = answers[i][0];
+            document.getElementById('second').value = answers[i][1];
+            document.getElementById('third').value = answers[i][2];
+            document.getElementById('fourth').value = answers[i][3];
+
+            radios=document.getElementsByName('ans');
+            for(l=0; l<radios.length; l++)
+            {
+                if(user_answers[i]==radios[l].value)
+                {
+                    radios[l].checked=true;
+                }
+                else
+                {
+                    radios[l].checked=false;
+                }
+            }
+        }
+        function showResult()
+        {
+            for(k=0; k<correct_answers.length; k++)
+            {
+                if(correct_answers[k]==user_answers[k])
+                {
+                    result++;
+                }
+            }
+            alert("Your Score is "+result+" out of 4.")
+            result=0;
+        }
+    </script>
+</html>

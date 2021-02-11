@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <link href="Calculator.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="calculator">
+        <div id="screen">
+            <input type="text" placeholder="0" readonly id="output"/>
+        </div>
+        <div id="buttons">
+            <div id="numbers">
+                <button type="button" onclick="numbers('7')" class="num">7</button>
+                <button type="button" onclick="numbers('8')" class="num">8</button>
+                <button type="button" onclick="numbers('9')" class="num">9</button>
+                <button type="button" onclick="numbers('4')" class="num">4</button>
+                <button type="button" onclick="numbers('5')" class="num">5</button>
+                <button type="button" onclick="numbers('6')" class="num">6</button>
+                <button type="button" onclick="numbers('1')" class="num">1</button>
+                <button type="button" onclick="numbers('2')" class="num">2</button>
+                <button type="button" onclick="numbers('3')" class="num">3</button>
+                <button type="button" onclick="zero()" id="zero" class="num">0</button>
+                <button type="button" onclick="dots()" class="num">.</button>
+                <button type="button" onclick="minus()" id="x" class="num">x</button>
+                <button type="button" onclick="clean()" id="clear" class="num">C</button>                
+            </div>
+            <div id="operators">
+                <button type="button" onclick="operators('/')" class="ope">&divide</button>
+                <button type="button" onclick="operators('*')" class="ope">*</button>
+                <button type="button" onclick="operators('-')" class="ope">-</button>
+                <button type="button" onclick="operators('+')" class="ope">+</button>
+                <button type="button" onclick="calculation()" id="equal" class="ope">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var screen_text="";
+
+        var temp_dot=true;
+        var temp_zero=true;
+        var temp_sign=false;
+      
+        var screen_number=0;
+
+        function numbers(number)
+        {
+            screen_text+=number;   
+            document.getElementById("output").value=screen_text;
+            temp_zero=false;
+        }
+
+        function dots()
+        {
+            if(temp_dot==true || screen_text=='')
+            {
+                screen_text+='.';   
+                document.getElementById("output").value=screen_text;
+                temp_dot=false;
+                temp_zero=false;
+            }
+        }
+
+        function zero()
+        {
+            if(screen_text=='')
+            {
+               temp_zero=true;                
+            }
+            if(temp_zero!=true)
+            {
+                screen_text+='0';   
+                document.getElementById("output").value=screen_text;                
+            }
+        }
+
+        function minus()
+        {
+            // For dot
+            if(screen_text[screen_text.length-1]=='.')  
+            {
+                temp_dot=true;
+            }
+            if(screen_text[screen_text.length-1]=='+' || screen_text[screen_text.length-1]=='-' ||
+            screen_text[screen_text.length-1]=='*' || screen_text[screen_text.length-1]=='/')  
+            {
+                temp_dot=false;
+            }
+
+            screen_text=screen_text.slice(0, -1);
+            document.getElementById("output").value=screen_text;          
+        }
+
+        function clean()
+        {
+            temp_dot=true;
+            temp_zero=true;
+            screen_text='';
+            document.getElementById("output").value=screen_text;
+        }
+
+        function operators(operation)
+        {
+            if(screen_text!='')
+            {
+                // For dot
+                temp_dot=true;
+
+                var sign=operation;
+                var li=screen_text.length-1;
+                if(screen_text[li]=="+" || screen_text[li]=="-" || screen_text[li]=="*" ||screen_text[li]=="/")
+                {
+                    sign='';
+                }  
+                screen_text+=sign;         
+                document.getElementById("output").value=screen_text;
+
+                // For Zero
+                temp_zero=true;
+            }            
+        }
+
+        function calculation()
+        {
+            try 
+            {
+                screen_number+=eval(screen_text);
+                document.getElementById("output").value=screen_number;
+                screen_text=String(screen_number);
+                screen_number=0;
+
+                // For dot
+                temp_dot=true;
+                var length=screen_text.length;
+                for(i=0; i<length; i++)
+                {
+                    if(screen_text[i]=='.')
+                    {
+                        temp_dot=false;
+                    }
+                }
+               
+            }
+            catch(err) 
+            {
+                document.getElementById("output").value='Invalid Input!';
+                screen_text='';
+                screen_number=0;
+            }
+        }
+    </script>
+</body>
+</html>

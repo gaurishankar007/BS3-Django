@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <table border='1'>
+            <tr>
+                <th colspan="4" style="border:none;"><input type="text" 
+                    style=" text-align:right; height:5px; border:none;" id="sign"/></th> 
+            </tr>
+            <tr>
+                <th colspan=4 style="border:none;"><input type="text" id='display' readonly 
+                    placeholder='0' style="text-align:right; border:none;" /></th>                               
+            </tr>
+            <tr>
+                <th><button type="button" onclick="onNumClick('7')">7</button></th>
+                <th><button type="button" onclick="onNumClick('8')">8</button></th>
+                <th><button type="button" onclick="onNumClick('9')">9</button></th>
+                <th><button type="button" onclick="onOpClick('/')">&divide</button></th>
+            </tr>
+            <tr>
+                <th><button type="button" onclick="onNumClick('4')">4</button></th>
+                <th><button type="button" onclick="onNumClick('5')">5</button></th>
+                <th><button type="button" onclick="onNumClick('6')">6</button></th>
+                <th><button type="button" onclick="onOpClick('*')">x</button></th>
+            </tr>
+            <tr>
+                <th><button type="button" onclick="onNumClick('1')">1</button></th>
+                <th><button type="button" onclick="onNumClick('2')">2</button></th>
+                <th><button type="button" onclick="onNumClick('3')">3</button></th>
+                <th><button type="button" onclick="onOpClick('-')">-</button></th>
+            </tr>
+            <tr>
+                <th><button type="button" onclick="onNumClick('0')">0</button></th>
+                <th><button type="button" onclick="dot()">.</button></th>
+                <th><button type="button" onclick="onEqClick()">=</button></th>
+                <th><button type="button" onclick="onOpClick('+')">+</button></th>
+            </tr>
+            <tr>
+                <th colspan=4><button type="button" onclick="onCancelClick()">c</button></th>
+            </tr>
+        </table>
+
+        <script>
+            var num1=0;
+            var num2=0;
+            var Operation='';
+            var display='';
+
+            function onNumClick(num)
+            {
+                document.getElementById('sign').value='';
+                if(display!='' || num!='0')
+                {
+                    display+=num;
+                    document.getElementById('display').value=display;
+                }                
+            }
+
+            function dot()
+            {
+                document.getElementById('sign').value='';
+                var dot='.';
+                for(i=0; i<display.length; i++)
+                {
+                    if(display[i]=='.')
+                    {
+                        dot='';
+                        break;
+                    }
+                }
+                display+=dot;
+                document.getElementById('display').value=display;
+            }
+
+            function onCancelClick()
+            {
+                num1=0;
+                num2=0;
+                Operation='';
+                display='';
+                document.getElementById('display').value='';
+                document.getElementById('sign').value='';
+            }
+
+            function onOpClick(op)
+            {
+                if(display!='')
+                {
+                    num1=Number(display);
+                }                
+                operation=op;
+                display='';
+                document.getElementById('sign').value=op;
+            }
+
+            function onEqClick()
+            {
+                num2=Number(display);
+                switch(operation)
+                {
+                    case '+':
+                        display=num1+num2;
+                        break;
+                    case '-':
+                        display=num1-num2;
+                        break;
+                    case '*':
+                        display=num1*num2;
+                        break;
+                    case '/':
+                        display=num1/num2;
+                        break;
+                    default:
+                        display='';
+                }
+                document.getElementById('display').value=display;
+                document.getElementById('sign').value='';
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+table, th, td
+{
+    border: solid black 1px;
+    border-collapse: collapse;
+}
+
+th
+{
+    background-color: blue;
+    font-family: Arial;
+}
+
+#col-name-address
+{
+    background-color: darkorange;
+}
+
+#col-phone
+{
+    background-color: green;
+}

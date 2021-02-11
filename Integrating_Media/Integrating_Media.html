@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integrating Media</title>
+</head>
+<body>
+    <!--
+    Bitmap Image type
+    ------------------
+    1.GIF - 8bit, 2^8=256 less compression
+    2.JPEG - 24bit, 2^24=16777216
+    3.PNG- 8, 16, 24bit W3C recommended
+
+    Preparing Images for web
+    ------------------------
+
+    Sourcing Media
+    ---------------
+
+    -->
+    <figure>
+        <img src="a.png" alt="Image Title" height="890" width="1900" />
+        <figcaption>PUBG MOBILE</figcaption>
+    </figure>
+
+    <audio controls autoplay loop>
+        <source src="slipknot.mp3" type="audio/mp3"/>
+        <source src="slipknot.ogg" type="audio/ogg"/>
+        <source src="slipknot.mp4" type="audio/mp4"/>
+    </audio>
+
+    <video controls width="1900">
+        <source src="PUBG.mp4" type="video/mp4" />
+        <source src="PUBG.ogg" type="video/ogg" />
+        <source src="PUBG.flv" type="video/flv" />
+    </video>
+
+    <!--
+    copy embed code (link from youtube)
+    -->
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/PvHayKjwKbs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</body>
+</html>

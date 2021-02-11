@@ -1,0 +1,52 @@
+header
+{
+    background: url(1.jpg);
+    background-size: 1000px 500px;
+    float: left;
+    height: 300px;
+    width: 500px;
+}
+
+#test
+{
+    background: rgb(36, 209, 50, 0.4);
+    margin: 25px;
+    height: 250px;
+    width: 450px;
+    /*opacity: 0.5;*/
+}
+
+#test h1
+{
+    color:
+}
+
+article
+{
+    float: left;
+    width: 80%;
+}
+
+article img
+{
+    height: 300px;
+    width: 500px;
+}
+
+article h1
+{
+    color: red;
+    position: absolute; /* absolute, relative, fixed, sticky, static*/
+    top: 500px;
+    left: 460px;
+    z-index: -999;
+}
+
+aside
+{
+    background: red;
+    float: left;
+    height: 500px;
+    width: 500px;
+
+}

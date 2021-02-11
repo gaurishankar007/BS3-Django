@@ -1,0 +1,249 @@
+<!DOCTYPE>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Form</title>
+        <style>
+            #Result .Identifier
+            {
+               font-weight:bold;
+               height:30px;
+            }
+            #result table 
+            {
+               border-collapse:collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="frm-div">
+            <form name='reg-frm'>
+                <p>
+                    <label>Username: </label> <br/>
+                    <input type="text" name='username'/>
+                </p>
+                <p>
+                    <label>Password: </label> <br/>
+                    <input type="password" name='password'/>
+                </p>
+                <p>
+                    <label>Confirm-Password: </label> <br/>
+                    <input type="password" name='confirm-password'/>
+                </p>
+                <p>
+                    <label>Gender: </label> <br/>
+                    <input type="radio" name='gender' id='male' value="Male"/><label for='male'>Male</label>
+                    <input type="radio" name='gender' id='female' value="Female"/><label for='female'>Female</label>
+                    <input type="radio" name='gender' id='other' value="Other"/><label for='other'>Other</label>
+                </p>
+                <p>
+                    <label>HObbies: </label> <br/>
+                    <input type="checkbox" name='hob' id='music' value="Music"/><label for='music'>Music</label>
+                    <input type="checkbox" name='hob' id='travel' value="Travel"/><label for='travel'>Travel</label>
+                    <input type="checkbox" name='hob' id='photography' value="Photography"/><label for='photography'>Photography</label>
+                    <input type="checkbox" name='hob' id='reading' value="Reading"/><label for='reading'>Reading</label>
+                    <input type="checkbox" name='hob' id='others' value="Others"/><label for='others'>Others</label>
+                </p>
+                <p>
+                    <label>DOB: </label> <br/>
+                    <input type="date" name='dob'/>
+                </p>
+                <p>
+                    <label>Contact: </label> <br/>
+                    <input type="number" name='contact'/>
+                </p>
+                <p>
+                    <label>Country: </label> <br/>
+                    <select name='country'>
+                        <option>Nepal</option>
+                        <option>India</option>
+                        <option>England</option>
+                        <option>China</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Email: </label> <br/>
+                    <input type="email" name='email'/>
+                </p>
+                <p>
+                    <label>Website: </label> <br/>
+                    <input type="url" name='website'/>
+                </p>
+                <p>
+                    <label>Comment: </label> <br/>
+                    <textarea name='textarea'></textarea>
+                </p>
+                <p>
+                    <label>Range: </label> <br/>
+                    <input type="range" name='range' min='0' max='10'/>
+                </p>
+                <p>
+                    <input type='submit' name='submit1' value='Submit' onclick="return onSubmit()"/>
+                    <input type='button' name='submit2' value='Submit' onclick="submitter()"/>
+                    <input type='button' name='show_result' value='Show Result' onclick="showResult()"/>
+                    <input type='button' name='remove_result' value='Remove Result' onclick="removeResult()"/>
+                </p>
+                <div id='Result'>
+                    <table border=1>
+                            <tr>
+                                <td class='Identifier'>Username</td>
+                                <td id='r1'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Password</td>
+                                <td id='r2'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Gender</td>
+                                <td id='r3'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Hobbies</td>
+                                <td id='r4'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>DOB</td>
+                                <td id='r5'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Contact</td>
+                                <td id='r6'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Country</td>
+                                <td id='r7'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Email</td>
+                                <td id='r8'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Website</td>
+                                <td id='r9'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Comment</td>
+                                <td id='r10'></td>
+                            </tr>
+                            <tr>
+                                <td class='Identifier'>Range</td>
+                                <td id='r11'></td>
+                            </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <script>
+            function onSubmit()
+            {
+                var Username=document.forms['reg-frm']['username'].value;
+                var Password=document.forms['reg-frm']['password'].value;
+                var Confirm_Password=document.forms['reg-frm']['confirm-password'].value;
+                var Gender=document.forms['reg-frm']['gender'].value;
+                var DOB=document.forms['reg-frm']['dob'].value;
+                var Contact=document.forms['reg-frm']['contact'].value;
+                var Country=document.forms['reg-frm']['country'].value;
+                var Email=document.forms['reg-frm']['email'].value;
+                var Website=document.forms['reg-frm']['website'].value;
+                var Comment=document.forms['reg-frm']['textarea'].value;
+                var Range=document.forms['reg-frm']['range'].value;
+
+                var Hobby=document.forms['reg-frm']['hob'];
+                for(i=0; i<Hobby.length; i++)
+                {
+                    if(Hobby[i].checked)
+                    {
+                        console.log(Hobby[i].value);
+                    }
+                }                
+                var Contact_reg=/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+                var Username_reg=/^[a-zA-Z0-9]+$/;
+                if(!Username.match(Username_reg))
+                {
+                    alert('Invalid Username!');
+                    return false;
+                }
+                if(Password!=Confirm_Password)
+                {
+                    alert("Password mismatch!");
+                    return false;
+                }
+                if(!Contact.match(Contact_reg))
+                {
+                    alert('Invalid phone number format!')
+                    return false;
+                }
+            }
+
+            document.forms['reg-frm']['show_result'].hidden=true;
+            document.forms['reg-frm']['remove_result'].hidden=true;
+            document.getElementById('Result').hidden=true;
+            function submitter()
+            {
+                document.forms['reg-frm']['show_result'].hidden=false;
+                var Username=document.forms['reg-frm']['username'].value;
+                var Password=document.forms['reg-frm']['password'].value;
+                var Confirm_Password=document.forms['reg-frm']['confirm-password'].value;
+                var Gender=document.forms['reg-frm']['gender'].value;
+                var Hobbies='';
+                var DOB=document.forms['reg-frm']['dob'].value;
+                var Contact=document.forms['reg-frm']['contact'].value;
+                var Country=document.forms['reg-frm']['country'].value;
+                var Email=document.forms['reg-frm']['email'].value;
+                var Website=document.forms['reg-frm']['website'].value;
+                var Comment=document.forms['reg-frm']['textarea'].value;
+                var Range=document.forms['reg-frm']['range'].value;
+
+                var Hobby=document.forms['reg-frm']['hob'];
+                for(i=0; i<Hobby.length; i++)
+                {
+                    if(Hobby[i].checked)
+                    {
+                       Hobbies+=Hobby[i].value+",";
+                    }
+                }                
+                var Contact_reg=/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+                var Username_reg=/^[a-zA-Z0-9]+$/;
+                var Email_reg=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if(!Username.match(Username_reg))
+                {
+                    alert('Invalid Username!');
+                }
+                if(Password!=Confirm_Password)
+                {
+                    alert("Password mismatch!");
+                }
+                if(!Contact.match(Contact_reg))
+                {
+                    alert('Invalid phone number format!')
+                }
+                if(!Email.match(Email_reg))
+                {
+                    alert('Invalid email format!')
+                }
+                document.getElementById('r1').innerHTML=Username;
+                document.getElementById('r2').innerHTML=Password;
+                document.getElementById('r3').innerHTML=Gender;
+                document.getElementById('r4').innerHTML=Hobbies;
+                document.getElementById('r5').innerHTML=DOB;
+                document.getElementById('r6').innerHTML=Contact;
+                document.getElementById('r7').innerHTML=Country;
+                document.getElementById('r8').innerHTML=Email;
+                document.getElementById('r9').innerHTML=Website;
+                document.getElementById('r10').innerHTML=Comment;
+                document.getElementById('r11').innerHTML=Range;
+            }
+            function showResult()
+            {
+                document.forms['reg-frm']['show_result'].hidden=true;
+                document.forms['reg-frm']['remove_result'].hidden=false;
+                document.getElementById('Result').hidden=false;
+            }
+            function removeResult()
+            {
+                document.forms['reg-frm']['remove_result'].hidden=true;
+                document.getElementById('Result').hidden=true;
+            }
+        </script>
+    </body>
+</html>

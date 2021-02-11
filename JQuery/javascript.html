@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="JQuery.js"></script>
+  </head>
+  <body>
+    <h1 class="test">Javascript</h1>
+    <div>
+      <input type="text" name="username"/>
+      <input type="button" value="Click" id="my_btn"/> <br/>
+    </div>
+    <forms id='reg-frm'>
+      <h2>Fullfil the following requirements</h2>
+      <p>
+        <label>Name: </label> <br/>
+        <input type="text" name='name'/>
+      </p>
+      <p>
+          <label>Gender: </label> <br/>
+          <input type="radio" name='gender' id='male' value="Male"/><label for='male'>Male</label>
+          <input type="radio" name='gender' id='female' value="Female"/><label for='female'>Female</label>
+          <input type="radio" name='gender' id='other' value="Other"/><label for='other'>Other</label>
+      </p>
+      <p>
+          <label>Hobbies: </label> <br/>
+          <input type="checkbox" name='hob' id='music' value="Music"/><label for='music'>Music</label>
+          <input type="checkbox" name='hob' id='travel' value="Travel"/><label for='travel'>Travel</label>
+          <input type="checkbox" name='hob' id='photography' value="Photography"/><label for='photography'>Photography</label>
+          <input type="checkbox" name='hob' id='reading' value="Reading"/><label for='reading'>Reading</label>
+          <input type="checkbox" name='hob' id='others' value="Others"/><label for='others'>Others</label>
+      </p>
+      <p>
+          <label>DOB: </label> <br/>
+          <input type="date" name='dob'/>
+      </p>
+      <p>
+          <label>Contact: </label> <br/>
+          <input type="number" name='contact'/>
+      </p>
+      <p>
+          <label>Country: </label> <br/>
+          <select class='country'>
+              <option>Nepal</option>
+              <option>India</option>
+              <option>England</option>
+              <option>China</option>
+          </select>
+      </p>
+      <p>
+          <label>Email: </label> <br/>
+          <input type="email" name='email'/>
+      </p>
+      <p>
+          <input type='button' name='submit' value='Submit'/>
+          <input type='button' name='show_result' value='Show Result'/>
+          <input type='button' name='remove_result' value='Remove Result'/>
+      </p>
+    </forms>
+    <div id='result'>
+      <ul>
+        <li id='name'></li>
+        <li id='gender'></li>
+        <li id='hobbies'></li>
+        <li id='dob'></li>
+        <li id='contact'></li>
+        <li id='country'></li>
+        <li id='email'></b></li>
+      </ul>
+    </div>
+    <script src="my_js.js"></script>
+  </body>
+</html>

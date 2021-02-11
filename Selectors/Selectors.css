@@ -1,0 +1,160 @@
+/*
+<====================Selectors====================>
+1.Universal Selector(*)
+2.Tag Selector (p/h1)
+3.id Selector (#id_name)
+4.class Selector (.class_name)
+5.Grouping Selector (h1,p,h2,pre)
+6.Descendant Selector (div p)
+7.Child Selector (div > h1)
+8.Sibling Selector (h1 ~ p)
+9.Adjacent Sibling Selectors (h1 + p)
+10.Pseudo Element Selector (::first-line,first-letter,before,after)
+11.Pseudo Class Selector(:link,:hover,:active,:visited)
+12.Attribute Selectors (input[type="submit"])
+13.nth child Selectors
+
+<====================Properties====================>
+1.Text Properties / List Properties
+2.Box Properties
+3.Float & clear
+4.Display (inline, block, inline-block, none, flex, grid)
+5.Position (absolute, relative, fixed, sticky, static)
+6.Animation, Transform, Transition
+*/
+*
+{
+    margin:0;
+    padding:0;
+}
+
+#all
+{
+    margin:0 auto;
+    width:90%;
+}
+
+a:link
+{
+    color:green;
+}
+
+a:hover
+{
+    color:red;
+}
+
+a:active
+{
+    color:orange;
+}
+
+a:visited
+{
+    color:brown;
+}
+
+#main
+{
+    background-color:aqua;
+    float:left;
+}
+
+#main h1
+{
+    color:blue;
+}
+
+#main > h1
+{
+    color:red;
+}
+
+#main >h1::first-letter
+{
+    color:green;
+}
+
+#main1
+{
+    float:left;
+    clear:left;
+}
+
+#main1 h1~p
+{
+    color:blue;
+}
+
+#main1 h1+p::first-line
+{
+    color:red;
+    background-color:aqua;
+}
+
+#p2::before
+{
+    content:"Note: ";
+}
+
+#main1 p:nth-child(6)
+{
+    text-shadow: red 5px 5px 5px;
+}
+
+#main1 h2
+{
+    color:red;
+    transform:rotate(20deg);
+}
+
+#display
+{
+    float:left;
+    width:100%;
+    display: inline-grid; /*flex*/
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-gap: 50px 50px;
+}
+
+#display div:hover
+{
+    transform:scale(1.5, 1.5);
+    /*transform:translate(12px, 12px);*/
+}
+
+.aa
+{
+    background-color:yellow;
+    height:100px;
+    width:100px;
+    margin:10px;
+}
+
+#new
+{
+    background-color: green;
+    float:left;
+    height:100px;
+    width:200px;
+    transition: width 1s, height 1s;
+    transition-delay:1s;
+    /*
+    animation-name:my_animation;
+    animation-duration:2s;
+    animation-delay:2s;
+    animation-iteration-count:5;
+    */
+}
+
+#new:hover
+{
+    height:200px;
+    width:400px;
+}
+
+@keyframes my_animation
+{
+    from{background-color:red}
+    to{background-color:blue;}
+}

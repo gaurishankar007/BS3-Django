@@ -1,0 +1,115 @@
+#main
+{
+background: url(b.jpg);
+background-size: 1900px 910px;
+background-repeat: no-repeat;
+height:910px;
+width:1900px;
+}
+
+#head
+{
+    height: 100px;
+}
+
+#head ul
+{
+    padding:20px;
+    margin-left:1150px;
+}
+
+#head ul li
+{
+    margin-left: 20px;
+    list-style-type:none;
+    display: inline;
+}
+
+#head ul li a
+{
+    font-size:25px;
+    color: white;
+    text-decoration:none;
+}
+
+#head ul li div
+{
+    border:solid 1px white;
+    height:25px;
+    width:120px;
+    padding:10px;
+    display:inline;
+}
+
+#body1
+{
+    float: left;
+    height: 300px;
+    width: 450px;
+    margin: 200px 0 0 500px;
+}
+
+#body1 h1
+{
+    color: white;
+    font-size: 70px;
+    margin: 0;
+}
+
+#body1 p
+{
+    color: white;
+    font-size: 20px;
+}
+
+#body1 p a
+{
+    color: blue;
+}
+
+#body1 button
+{
+    color: white;
+    background-color: green;
+    height: 30px;
+    width: 100px;
+    border-radius:25px;
+}
+
+#body2
+{
+    border-radius:2%;
+    background-color: white;
+    float: left;
+    height: 450px;
+    width: 350px;
+    margin: 150px 0 0 300px;
+}
+
+#body2 h1
+{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input, select
+{
+    border:solid white 1px;
+    background-color:#F2F2F2;
+    margin:0 0 20px 25px;
+    display: block;
+    height:50px;
+    width:280px;
+}
+
+#body2 form button
+{
+    color: white;
+    font-size: 20px;
+    background-color:blue;
+    margin:0 0 20px 35px;
+    display: block;
+    height:40px;
+    width:280px;
+    border-radius:25px;
+}

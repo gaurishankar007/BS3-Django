@@ -1,0 +1,51 @@
+#nav
+{
+    background-color: orange;
+    height: 40px;
+}
+
+#nav ul
+{
+    list-style: none;
+}
+
+#nav ul li
+{
+    float: left;
+    margin: 10px;
+}
+
+#nav ul li a
+{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    width: 70px;
+    text-align: center;
+}
+
+#nav ul li ul
+{
+    font-size: 10px;
+    background-color: darkorange;
+    border: solid black 1px;
+    display: none;
+    position: absolute;
+    padding: 0;
+}
+
+#nav ul li ul li
+{
+    float: none;
+}
+
+#nav ul li:hover ul
+{
+    display: block;
+}
+
+#nav ul li ul li a
+{
+    text-align:left;
+}
