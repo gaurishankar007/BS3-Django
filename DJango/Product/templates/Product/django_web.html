@@ -1,0 +1,20 @@
+{% extends 'Layout.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>DJango_Web</title>
+{% include 'Product/Header.html' %}
+<link rel="stylesheet", href="{% static 'css/style.css'%}"/>
+{% endblock %}
+
+{% block content %}
+<h1>hello! Everyone</h1>
+<ul>
+    {% for item in products %}
+    <li>Name: {{item.name}}, Price: {{item.price}}, Stock: {{item.stock}}
+    </li>
+    {% endfor %}
+</ul>
+<img class="img-fluid rounded" src="{% static 'images/img1.jpg' %}" />
+{% endblock %}

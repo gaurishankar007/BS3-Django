@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid bg-success pt-5" style="height: 100px">
+      <p>This is a container-fluid.</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 bg-primary">
+          <p>Span1</p>
+          <p>Span2</p>
+        </div>
+        <div class="col-md-6 col-sm-12 bg-warning">
+          <p>Span1</p>
+          <p>Span2</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-primary" role="alert">
+      A simple primary alert—check it out!
+    </div>
+    <div class="alert alert-secondary" role="alert">
+      A simple secondary alert—check it out!
+    </div>
+    <div class="alert alert-success" role="alert">
+      A simple success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert">
+      A simple danger alert—check it out!
+    </div>
+    <div class="alert alert-warning" role="alert">
+      A simple warning alert—check it out!
+    </div>
+    <div class="alert alert-info" role="alert">
+      A simple info alert—check it out!
+    </div>
+    <div class="alert alert-light" role="alert">
+      A simple light alert—check it out!
+    </div>
+    <div class="alert alert-dark" role="alert">
+      A simple dark alert—check it out!
+    </div>
+    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those
+      fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <h1>Example heading <span class="badge bg-primary">New</span></h1>
+    <h2>Example heading <span class="badge bg-secondary">New</span></h2>
+    <h3>Example heading <span class="badge bg-success">New</span></h3>
+    <h4>Example heading <span class="badge bg-danger">New</span></h4>
+    <h5>Example heading <span class="badge bg-warning">New</span></h5>
+    <h6>Example heading <span class="badge bg-info">New</span></h6>
+
+    <button type="button" class="btn btn-lg btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-link">Link</button>
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary">Left</button>
+      <button type="button" class="btn btn-secondary">Middle</button>
+      <button type="button" class="btn btn-secondary">Right</button>
+    </div>
+    
+    </br>
+    </br>
+
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    
+    </br>
+    
+    <p>
+      <a
+        class="btn btn-primary"
+        data-toggle="collapse"
+        href="#multiCollapseExample1"
+        role="button"
+        aria-expanded="false"
+        aria-controls="multiCollapseExample1"
+        >Toggle first element</a>
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-toggle="collapse"
+        data-target="#multiCollapseExample2"
+        aria-expanded="false"
+        aria-controls="multiCollapseExample2"
+      >Toggle second element</button>
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-toggle="collapse"
+        data-target=".multi-collapse"
+        aria-expanded="false"
+        aria-controls="multiCollapseExample1 multiCollapseExample2"
+      >Toggle both elements</button>
+    </p>
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card card-body">
+            Some placeholder content for the first collapse component of this
+            multi-collapse example. This panel is hidden by default but revealed
+            when the user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+          <div class="card card-body">
+            Some placeholder content for the second collapse component of this
+            multi-collapse example. This panel is hidden by default but revealed
+            when the user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </br>
+
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+    </br>
+
+    <form>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name" />
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Middle name" />
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" />
+        </div>
+      </div>
+    </form>
+    
+    </br>
+
+    <div class="container bg-info">
+      <p class="text-uppercase text-muted">this text is uppercase and muted</p>
+      <p class="text-lowercase text-dark">THIS TEXT IS LOWERCASE AND DARK</p>
+      <p class="text-capitalize text-white">this text is capitalized and white</p>
+      <p class="text-right">this text is right</p>
+      <p class="text-center">this text is center</p>
+      <p class="text-justify px-2 text-danger">
+        Venom is a 2018 American superhero film based on the Marvel
+        Comics character of the same name, produced by Columbia Pictures
+        in association with Marvel and Tencent Pictures. Distributed by
+        Sony Pictures Releasing, it is the first film in the Sony Pictures 
+        Universe of Marvel Characters.
+      </p>
+    </div>
+
+    <div>
+      <img class="img-fluid rounded-circle" src="skull.jpg" alternate="picture"/>
+    </div>
+    
+    </br>
+
+    <div class="container">
+      <div class="row justify-content-between"> 
+        <!--justify-content-first, justify-content-end, justify-content-center, 
+        justify-content-around, justify-content-between-->
+        <span class="col-md-4 bg-info"><p>This is first Span.</p></span>
+        <span class="col-md-4 bg-danger"><p>This is first Span.</p></span>
+        <span class="col-md-4 bg-warning"><p>This is first Span.</p></span>
+        <span class="col-md-4 bg-success"><p>This is first Span.</p></span>
+        <span class="col-md-4 bg-primary"><p>This is first Span.</p></span>
+      </div>
+    </div>
+    
+    </br>
+
+    <div class="container">
+      <table class="table table-hover">
+        <!--table-dark, table-responsive, table-striped, table-hover-->
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+        </tr>
+        <tr>
+          <td>a</td>
+          <td>b</td>
+          <td>c</td>
+          <td>d</td>
+        </tr>
+        <tr>
+          <td>w</td>
+          <td>x</td>
+          <td>y</td>
+          <td>z</td>
+        </tr>
+        <tr>
+          <td>p</td>
+          <td>q</td>
+          <td>r</td>
+          <td>s</td>
+        </tr>
+      </table>
+    </div>
+
+    </br>
+
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+    </br>
+
+    <div class="card shadow">
+      <img class="card-img-top col-md-2" src='skull.jpg' alt="picture"/>
+      <div class="card-body">
+        <h5 class="card-title">Visit Nepal</h5>
+        <p class="card-text">
+          Close to the capital city Kathmandu,
+          Jugal Himal is one of the hidden treasures both for trekkers
+          and climbers. The virgin peaks and the unspoiled region near
+          the capital fascinated us to organize a mission to Summit 
+          Gyalsen Peak of the Jugal Himal range. The authority of the Jugal 
+          municipality and Sindhu Tourism Council wanted to promote tourism
+          in the local area. Milan Lama, social worker and general secretary
+          of STC, was very much interested to work with the local authority
+          to promote tourism in the Jugal region. So we worked together with
+          the team to organize the mission expecting to have long
+          coordination with the locals to promote tourism in the area.
+        </p>
+        <a href="" class="btn btn-warning">Purchase</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="h1">h1. Bootstrap heading</p>
+      <p class="h2">h2. Bootstrap heading</p>
+      <p class="h3">h3. Bootstrap heading</p>
+      <p class="h4">h4. Bootstrap heading</p>
+      <p class="h5">h5. Bootstrap heading</p>
+      <p class="h6">h6. Bootstrap heading</p>
+
+      <p class="lead">
+        This is a lead paragraph. It stands out from regular paragraphs.
+      </p>
+
+      <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+      <p>
+        <del>This line of text is meant to be treated as deleted text.</del>
+      </p>
+      <p>
+        <s>This line of text is meant to be treated as no longer accurate.</s>
+      </p>
+      <p>
+        <ins
+          >This line of text is meant to be treated as an addition to the
+          document.</ins
+        >
+      </p>
+      <p><u>This line of text will render as underlined</u></p>
+      <p>
+        <small>This line of text is meant to be treated as fine print.</small>
+      </p>
+      <p><strong>This line rendered as bold text.</strong></p>
+      <p><em>This line rendered as italicized text.</em></p>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
