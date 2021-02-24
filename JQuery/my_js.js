@@ -22,6 +22,13 @@ myFun = () => // Different way to call a function
   }
 
   // JQuery selector;
+  $(window).scroll(function() {
+    var height = $(window).scrollTop();
+
+    if(height  > some_number) {
+        // do something
+    }
+  });
   $(document).ready(function(){
 
     $('.my_class').click(function(){

@@ -19,3 +19,11 @@ class Person(models.Model):
     email = models.EmailField()
 
 
+class Student(models.Model):
+    firstname = models.CharField(max_length=100)
+    lastname = models.CharField(max_length=100)
+    batch = models.CharField(max_length=100)
+    image_url = models.CharField(max_length=2000)
+    category = models.CharField(max_length=200)
+    created_date = models.DateTimeField(auto_now_add=True)
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #value {
+            font-size: 50px;
+        }
+    </style>
+
+    <div id="value">100</div>
+
+    <script>
+        function animateValue(id, start, end, duration) {
+            // assumes integer values for start and end
+            
+            var obj = document.getElementById(id);
+            var range = end - start;
+            // no timer shorter than 50ms (not really visible any way)
+            var minTimer = 50;
+            // calc step time to show all interediate values
+            var stepTime = Math.abs(Math.floor(duration / range));
+            
+            // never go below minTimer
+            stepTime = Math.max(stepTime, minTimer);
+            
+            // get current time and calculate desired end time
+            var startTime = new Date().getTime();
+            var endTime = startTime + duration;
+            var timer;
+        
+            function run() {
+                var now = new Date().getTime();
+                var remaining = Math.max((endTime - now) / duration, 0);
+                var value = Math.round(end - (remaining * range));
+                obj.innerHTML = value;
+                if (value == end) {
+                    clearInterval(timer);
+                    }
+                }            
+            timer = setInterval(run, stepTime);
+            run();
+        }
+
+        animateValue("value", 0, 500, 2000);
+    </script>
+</body>
+</html>

@@ -25,5 +25,5 @@ def index(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', index),
-    path('product/', include('Product.urls'))
+    path('product/', include('Product.urls')),
 ]

@@ -1,0 +1,30 @@
+{% extends 'Layout.html' %}
+
+{% block title %}
+<title>Get Student</title>
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Batch</th>
+        <th>Category</th>
+        <th>Image</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in students %}
+    <tr>
+        <td>{{ i.firstname }}</td>
+        <td>{{ i.lastname }}</td>
+        <td>{{ i.batch }}</td>
+        <td>{{ i.category }}</td>
+        <td><img src="{{i.image_url}}"/></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

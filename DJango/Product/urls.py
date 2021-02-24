@@ -11,5 +11,7 @@ urlpatterns = [
     path('test', index),
     path('django_web', views.index),
     path('addProducts', views.post_product_data),
-    path('personForm', views.ger_form)
+    path('personForm', views.ger_form),
+    path('studentForm', views.post_student),
+    path('getForm', views.get_student)
 ]
