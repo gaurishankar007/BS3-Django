@@ -1,0 +1,39 @@
+{% extends 'Layout.html' %}
+{% load bootstrap %}
+
+{% block title %}
+<title>Show Person Form</title>
+{% endblock %}
+
+{% block content %}
+ <div class="container">
+    <div class="row">
+        <a href="/product/personForm" class="btn btn-sm btn-primary ml-auto m-2 p-2">Add Person</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key in key %}
+                <tr>
+                    <td>{{key.firstname}}</td>
+                    <td>{{key.lastname}}</td>
+                    <td>{{key.email}}</td>
+                    <td>{{key.phone}}</td>
+                    <td>
+                        <a href="/product/updatepersonForm/{{key.id}}" class="btn btn-warning mr-3">Edit</a>
+                        <a href="/product/deletepersonForm/{{key.id}}" onclick="return confirm('Are you sure, you want to delete')" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+ </div>
+{% endblock %}

@@ -9,8 +9,6 @@ class ProductForm(forms.Form):
 
 
 class PersonForm(ModelForm):
-    address = forms.CharField(max_length=200)  # adding new field
-
     class Meta:
         model = Person
         fields = '__all__'  # ["firstname", "lastname", "address"] to show only firstname and lastname

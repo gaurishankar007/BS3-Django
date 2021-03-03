@@ -1,0 +1,42 @@
+{% extends 'Layout.html' %}
+
+{% block title %}
+<title>Add Student</title>
+{% endblock %}
+
+{% block content %}
+
+<form class="m-5" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="emailHelp" placeholder="Enter firstname" value="{{student.firstname}}">
+  </div>
+  <div class="form-group">
+    <label for="lastname">last Name</label>
+    <input type="text" class="form-control" id="lastname" name="lastname" aria-describedby="emailHelp" placeholder="Enter lastname" value="{{student.lastname}}">
+  </div>
+  <div class="form-group">
+    <label for="batch">Batch</label>
+    <input type="text" class="form-control" id="batch" name="batch" aria-describedby="emailHelp" placeholder="Enter batch" value="{{student.batch}}">
+  </div>
+  <div class="form-group">
+    <label for="image_url">Image URL</label>
+    <input type="text" class="form-control" id="image_url" name="image_url" aria-describedby="emailHelp" placeholder="Enter image_url" value="{{student.image_url}}">
+  </div>
+  <div class="form-group">
+    <label for="category">Select</label>
+    <select class="form-control" id="category" name="category">
+      {% if student.category == 'Bsc(Hons) Computing' %}
+      <option selected>Bsc(Hons) Computing</option>
+      <option>Bsc(Hons) Ethical</option>
+      {% endif %}
+      {% if student.category == 'Bsc(Hons) Ethical' %}
+      <option>Bsc(Hons) Computing</option>
+      <option selected>Bsc(Hons) Ethical</option>
+      {% endif %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -5,26 +5,33 @@
 {% endblock %}
 
 {% block content %}
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Batch</th>
-        <th>Category</th>
-        <th>Image</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for i in students %}
-    <tr>
-        <td>{{ i.firstname }}</td>
-        <td>{{ i.lastname }}</td>
-        <td>{{ i.batch }}</td>
-        <td>{{ i.category }}</td>
-        <td><img src="{{i.image_url}}"/></td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="container">
+    <div class="d-flex justify-content-end mt-4">
+        <a class="btn btn-primary" href="/product/studentForm">Add New Student</a>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Batch</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in students %}
+        <tr>
+            <td>{{ i.firstname }}</td>
+            <td>{{ i.lastname }}</td>
+            <td>{{ i.batch }}</td>
+            <td>{{ i.category }}</td>
+            <td><img class="img-fluid rounded-circle" src="{{i.image_url}}" style="height: 50px; width:80px"/></td>
+            <td><a href="/product/updateStudent/{{i.id}}" class="btn btn-warning">Update</a> <a href="/product/deleteStudent/{{i.id}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
