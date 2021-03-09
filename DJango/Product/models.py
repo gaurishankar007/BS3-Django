@@ -1,6 +1,7 @@
 from django.db import models
 import os
 from django.conf import settings
+from django.core import validators
 
 # Create your models here.
 
@@ -16,10 +17,10 @@ class Product(models.Model):
 
 
 class Person(models.Model):
-    firstname = models.CharField(max_length=100, null=True)
-    lastname = models.CharField(max_length=100, null=True)
-    email = models.EmailField(unique=True, null=True)
-    phone = models.CharField(max_length=20, null=True)
+    firstname = models.CharField(max_length=100, null=True, validators=[validators.MinLengthValidator(2)])
+    lastname = models.CharField(max_length=100, null=True, validators=[validators.MinLengthValidator(2)])
+    email = models.EmailField(unique=True, null=True, validators=[validators.validate_email])
+    phone = models.CharField(max_length=20, null=True, validators=[validators.MinLengthValidator(7)])
 
 
 class Student(models.Model):

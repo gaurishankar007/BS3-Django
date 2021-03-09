@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Product, Student, Person, FileUpload
-from .forms import ProductForm, PersonForm
+from .forms import ProductForm, PersonForm, FileForm
 from django.http import HttpResponse
+import os
+from django.contrib import messages
 # Create your views here.
 
 
@@ -20,44 +22,6 @@ def post_product_data(request):
         'form': form
     }
     return render(request, 'Product/postProduct.html', context)
-# ============================================ #
-
-
-def get_form(request):
-    if request.method == 'POST':
-        data = PersonForm(request.POST)
-        if data.is_valid():
-            data.save()
-            return redirect('/product/personForm')
-    context = {'form': PersonForm, 'active_form': 'active'}
-
-    return render(request, 'Product/PersonForm.html', context)
-
-
-def show_person_mf(request):
-    person = Person.objects.all()
-    context = {
-        'key': person,
-        'active_person': 'active'
-    }
-    return render(request, 'product/ShowPersonForm.html', context)
-
-
-def delete_person_form(request, person_id):
-    person = Person.objects.get(id=person_id)
-    person.delete()
-    return redirect('/product/showpersonForm')
-
-
-def update_person_form(request, person_id):
-    person = Person.objects.get(id=person_id)
-    if request.method == "POST":
-        form = PersonForm(request.POST, instance=person)
-        if form.is_valid():
-            form.save()
-            return redirect('/product/showpersonForm')
-    context = {'form': PersonForm(instance=person)}
-    return render(request, 'Product/UpdatePersonForm.html', context)
 # ============================================ #
 
 
@@ -112,6 +76,48 @@ def update_student(request, i_id):
 # ============================================ #
 
 
+def get_form(request):
+    if request.method == 'POST':
+        data = PersonForm(request.POST)
+        if data.is_valid():
+            data.save()
+            messages.add_message(request, messages.SUCCESS, 'Person Added Successfully')
+            return redirect('/product/showpersonForm')
+        else:
+            messages.add_message(request, messages.ERROR, 'Please provide correct details')
+            return render(request, 'product/personForm.html', {'form': data})
+    context = {'form': PersonForm, 'active_form': 'active'}
+
+    return render(request, 'Product/PersonForm.html', context)
+
+
+def show_person_mf(request):
+    person = Person.objects.all()
+    context = {
+        'key': person,
+        'active_person': 'active'
+    }
+    return render(request, 'product/ShowPersonForm.html', context)
+
+
+def delete_person_form(request, person_id):
+    person = Person.objects.get(id=person_id)
+    person.delete()
+    return redirect('/product/showpersonForm')
+
+
+def update_person_form(request, person_id):
+    person = Person.objects.get(id=person_id)
+    if request.method == "POST":
+        form = PersonForm(request.POST, instance=person)
+        if form.is_valid():
+            form.save()
+            return redirect('/product/showpersonForm')
+    context = {'form': PersonForm(instance=person)}
+    return render(request, 'Product/UpdatePersonForm.html', context)
+# ============================================ #
+
+
 def post_file(request):
     if request.method == "POST":
         title = request.POST.get('title')
@@ -154,3 +160,36 @@ def update_file(request, file_id):
     return render(request, 'Product/UpdateFile.html', context)
 # ============================================ #
 
+
+def get_file_mf(request):
+    files = FileUpload.objects.all()
+    context = {'files': files, 'activate_fileMF': 'active'}
+    return render(request, 'product/ShowFileMF.html', context)
+
+
+def post_file_mf(request):
+    if request.method == "POST":
+        form = FileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/product/getFileMF')
+    context = {'form': FileForm}
+    return render(request, 'product/AddFileMF.html', context)
+
+
+def delete_file_mf(request, file_id):
+    file = FileUpload.objects.get(id=file_id)
+    os.remove(file.file.path)
+    file.delete()
+    return redirect("/product/getFileMF")
+
+
+def update_file_mf(request, file_id):
+    instance = FileUpload.objects.get(id=file_id)
+    if request.method == "POST":
+        form = FileForm(request.POST, request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('/product/getFileMF')
+    context = {'form': FileForm(instance=instance), 'activate_fileMF': 'active'}
+    return render(request, 'product/UpdateFileMF.html', context)

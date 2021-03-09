@@ -1,5 +1,5 @@
 from django import forms
-from .models import Person
+from .models import Person, FileUpload
 from django.forms import ModelForm
 
 
@@ -12,4 +12,10 @@ class PersonForm(ModelForm):
     class Meta:
         model = Person
         fields = '__all__'  # ["firstname", "lastname", "address"] to show only firstname and lastname
+
+
+class FileForm(ModelForm):
+    class Meta:
+        model = FileUpload
+        fields = '__all__'
 

@@ -28,6 +28,11 @@ urlpatterns = [
     path('postFile', views.post_file),
     path('deleteFile/<int:file_id>', views.delete_file),
     path('updateFile/<int:file_id>', views.update_file),
+
+    path('getFileMF', views.get_file_mf),
+    path('addFileMF', views.post_file_mf),
+    path('deleteFileMF/<int:file_id>', views.delete_file_mf),
+    path('updateFileMF/<int:file_id>', views.update_file_mf)
 ]
 
 if settings.DEBUG:
