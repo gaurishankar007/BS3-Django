@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse d-flex align-items-center justify-content-between" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item {{active_product}}">
         <a class="nav-link" href="/product/django_web">Products <span class="sr-only">(current)</span></a>
@@ -27,6 +27,21 @@
       <li class="nav-item {{activate_fileMF}}">
         <a class="nav-link" href="/product/getFileMF">FileMF (Basic)</a>
       </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated %}
+      <li class="nav-item {{activate_fileMF}">
+        <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="/logout">Logout</a>
+      </li>
+      {% else %}
+      <li class="nav-item {{activate_fileMF}}">
+        <a class="btn btn-primary btn-sm mx-2" href="/">Login</a>
+      </li>
+      <li class="nav-item {{activate_fileMF}}">
+        <a class="btn btn-warning btn-sm mx-2" href="/register">Register</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

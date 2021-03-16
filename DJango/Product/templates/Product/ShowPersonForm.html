@@ -22,6 +22,13 @@
         {% endif %}
         {% endfor %}
         <a href="/product/personForm" class="btn btn-sm btn-primary ml-auto m-2 p-2">Add Person</a>
+        <br/>
+        <div class="card card-body">
+            <form class="form" method="GET">
+                {{person_filter.form}}
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>

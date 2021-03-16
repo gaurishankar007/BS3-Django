@@ -3,9 +3,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from . forms import LoginForm
+from .forms import LoginForm
+from .auth import unauthenticated_user
 
 
+@unauthenticated_user
 def register_user(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -20,6 +22,7 @@ def register_user(request):
     return render(request, 'account/Register.html', context)
 
 
+@unauthenticated_user
 def login_user(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -27,8 +30,12 @@ def login_user(request):
             data = form.cleaned_data
             user = authenticate(request, username=data['username'], password=data['password'])
             if user is not None:
-                login(request, user)
-                return redirect('/product/django_web')
+                if not user.is_staff:
+                    login(request, user)
+                    return redirect('/product/django_web')
+                elif user.is_staff:
+                    login(request, user)
+                    return redirect('/admin-dashboard')
             else:
                 messages.add_message(request, messages.ERROR, 'Username or Password Invalid')
                 return render(request, 'account/login.html', {'form': form})
@@ -38,4 +45,4 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    redirect('/')
+    return redirect('/')
