@@ -6,10 +6,12 @@ import os
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .filters import PersonFilter
+from account.auth import user_only
 # Create your views here.
 
 
 @login_required
+@user_only
 def index(request):
     items = Product.objects.all()
     context = {
@@ -20,6 +22,7 @@ def index(request):
 
 
 @login_required
+@user_only
 def post_product_data(request):
     form = ProductForm()
     context = {
@@ -30,6 +33,7 @@ def post_product_data(request):
 
 
 @login_required
+@user_only
 def post_student(request):
     if request.method == 'POST':
         data = request.POST
@@ -49,6 +53,7 @@ def post_student(request):
 
 
 @login_required
+@user_only
 def get_student(request):
     students = Student.objects.all()
     context = {'students': students, 'active_student': 'active'}
@@ -57,6 +62,7 @@ def get_student(request):
 
 
 @login_required
+@user_only
 def delete_student(request, i_id):
     student = Student.objects.get(id=i_id)
     student.delete()
@@ -65,6 +71,7 @@ def delete_student(request, i_id):
 
 
 @login_required
+@user_only
 def update_student(request, i_id):
     student = Student.objects.get(id=i_id)
     if request.method == "POST":
@@ -85,6 +92,7 @@ def update_student(request, i_id):
 
 
 @login_required
+@user_only
 def get_form(request):
     if request.method == 'POST':
         data = PersonForm(request.POST)
@@ -101,6 +109,7 @@ def get_form(request):
 
 
 @login_required
+@user_only
 def show_person_mf(request):
     person = Person.objects.all()
     person_filter = PersonFilter(request.GET, queryset=person)
@@ -113,6 +122,7 @@ def show_person_mf(request):
 
 
 @login_required
+@user_only
 def delete_person_form(request, person_id):
     person = Person.objects.get(id=person_id)
     person.delete()
@@ -120,6 +130,7 @@ def delete_person_form(request, person_id):
 
 
 @login_required
+@user_only
 def update_person_form(request, person_id):
     person = Person.objects.get(id=person_id)
     if request.method == "POST":
@@ -133,6 +144,7 @@ def update_person_form(request, person_id):
 
 
 @login_required
+@user_only
 def post_file(request):
     if request.method == "POST":
         title = request.POST.get('title')
@@ -148,6 +160,7 @@ def post_file(request):
 
 
 @login_required
+@user_only
 def get_file(request):
     files = FileUpload.objects.all()
     context = {'files': files, 'active_file': 'active'}
@@ -155,6 +168,7 @@ def get_file(request):
 
 
 @login_required
+@user_only
 def delete_file(request, file_id):
     file = FileUpload.objects.get(id=file_id)
     file.delete()
@@ -162,6 +176,7 @@ def delete_file(request, file_id):
 
 
 @login_required
+@user_only
 def update_file(request, file_id):
     file = FileUpload.objects.get(id=file_id)
     if request.method == 'POST':
@@ -180,6 +195,7 @@ def update_file(request, file_id):
 
 
 @login_required
+@user_only
 def get_file_mf(request):
     files = FileUpload.objects.all()
     context = {'files': files, 'activate_fileMF': 'active'}
@@ -187,6 +203,7 @@ def get_file_mf(request):
 
 
 @login_required
+@user_only
 def post_file_mf(request):
     if request.method == "POST":
         form = FileForm(request.POST, request.FILES)
@@ -198,6 +215,7 @@ def post_file_mf(request):
 
 
 @login_required
+@user_only
 def delete_file_mf(request, file_id):
     file = FileUpload.objects.get(id=file_id)
     os.remove(file.file.path)
@@ -206,6 +224,7 @@ def delete_file_mf(request, file_id):
 
 
 @login_required
+@user_only
 def update_file_mf(request, file_id):
     instance = FileUpload.objects.get(id=file_id)
     if request.method == "POST":

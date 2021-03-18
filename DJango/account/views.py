@@ -14,7 +14,7 @@ def register_user(request):
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'User Registered Successfully')
-            return redirect('/account')
+            return redirect('/')
         else:
             messages.add_message(request, messages.ERROR, 'Unable to Register User')
             return render(request, 'account/Register.html', {'form': form})
@@ -35,7 +35,7 @@ def login_user(request):
                     return redirect('/product/django_web')
                 elif user.is_staff:
                     login(request, user)
-                    return redirect('/admin-dashboard')
+                    return redirect('/admins-dashboard')
             else:
                 messages.add_message(request, messages.ERROR, 'Username or Password Invalid')
                 return render(request, 'account/login.html', {'form': form})
