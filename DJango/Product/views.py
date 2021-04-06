@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
-from .models import Product, Student, Person, FileUpload
-from .forms import ProductForm, PersonForm, FileForm
+from .models import *
+from .forms import *
 from django.http import HttpResponse
 import os
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .filters import PersonFilter
 from account.auth import user_only
+from django.contrib.auth import views as auth_views
 # Create your views here.
 
 
@@ -234,3 +235,68 @@ def update_file_mf(request, file_id):
             return redirect('/product/getFileMF')
     context = {'form': FileForm(instance=instance), 'activate_fileMF': 'active'}
     return render(request, 'product/UpdateFileMF.html', context)
+
+
+@login_required
+@user_only
+def user_account(request):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+    if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Account Update Successful for' + str(request.user.profile.username))
+            return redirect('/product/profile')
+    context = {'form': form}
+    return render(request, 'Product/profile.html', context)
+
+
+def show_reporter_mf(request):
+    reporters = Reporter.objects.all()
+    context = {
+        'reporters':reporters,
+        'activate_reporterMF':'active'
+    }
+    return render(request, 'product/getReporterMF.html', context)
+
+
+def post_reporter_mf(request):
+    if request.method == 'POST':
+        form = ReporterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Reporter Added Successfully')
+            return redirect('/product/getReporterMF')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error in adding reporter')
+            return render(request, 'product/postReporterMF.html', {'form':form})
+    context = {
+        'form' :ReporterForm
+    }
+    return render(request, 'product/postReporterMF.html',context)
+
+
+def show_article_mf(request):
+    articles = Article.objects.all()
+    context = {
+        'articles':articles,
+        'activate_articleMF':'active'
+    }
+    return render(request, 'product/getArticleMF.html', context)
+
+
+def post_article_mf(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Article Added Successfully')
+            return redirect('/product/getArticleMF')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error in adding article')
+            return render(request,'product/postArticleMF.html', {'form':form})
+    context = {
+        'form':ArticleForm,
+    }
+    return render(request, 'product/postArticleMF.html',context)

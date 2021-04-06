@@ -1,5 +1,5 @@
 from django import forms
-from .models import Person, FileUpload
+from .models import *
 from django.forms import ModelForm
 
 
@@ -18,4 +18,24 @@ class FileForm(ModelForm):
     class Meta:
         model = FileUpload
         fields = '__all__'
+
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = '__all__'
+        exclude = ['user', 'username']
+
+
+class ReporterForm(ModelForm):
+    class Meta:
+        model = Reporter
+        fields = "__all__"
+
+
+class ArticleForm(ModelForm):
+    class Meta:
+        model = Article
+        fields = "__all__"
+
 

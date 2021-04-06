@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm
 from .auth import unauthenticated_user
+from Product.models import Profile
 
 
 @unauthenticated_user
@@ -12,7 +13,8 @@ def register_user(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Profile.objects.create(user=user, username=user.username)
             messages.add_message(request, messages.SUCCESS, 'User Registered Successfully')
             return redirect('/')
         else:

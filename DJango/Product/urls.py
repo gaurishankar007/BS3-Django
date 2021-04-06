@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 
 def index(request):
@@ -32,7 +33,16 @@ urlpatterns = [
     path('getFileMF', views.get_file_mf),
     path('addFileMF', views.post_file_mf),
     path('deleteFileMF/<int:file_id>', views.delete_file_mf),
-    path('updateFileMF/<int:file_id>', views.update_file_mf)
+    path('updateFileMF/<int:file_id>', views.update_file_mf),
+
+    path('profile', views.user_account),
+    path('password_change', auth_views.PasswordChangeView.as_view(template_name='product/passwordChange.html')),
+    path('password_change_done', auth_views.PasswordChangeView.as_view(template_name='product/passwordChangeDone.html'), name='password_change_done'),
+
+    path('getReporterMF', views.show_reporter_mf),
+    path('postReporterMF', views.post_reporter_mf),
+    path('getArticleMF', views.show_article_mf),
+    path('postArticleMF', views.post_article_mf),
 ]
 
 if settings.DEBUG:

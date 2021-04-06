@@ -27,10 +27,24 @@
       <li class="nav-item {{activate_fileMF}}">
         <a class="nav-link" href="/product/getFileMF">FileMF (Basic)</a>
       </li>
+
+
+      <li class="nav-item {{active_form}}">
+        <a class="nav-link" href="/product/getReporterMF">Reporter Form</a>
+      </li>
+      <li class="nav-item {{active_file}}">
+        <a class="nav-link" href="/product/getArticleMF">Article Form</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav mr-auto">
       {% if user.is_authenticated %}
+      <li class="nav-item {{activate_fileMF}">
+        <a class="btn btn-primary btn-sm mx-2 d-flex mr-auto" href="/product/profile">Profile</a>
+      </li>
+      <li class="nav-item {{activate_fileMF}">
+        <a class="btn btn-warning btn-sm mx-2 d-flex mr-auto" href="/product/password_change">Change Password</a>
+      </li>
       <li class="nav-item {{activate_fileMF}">
         <a class="btn btn-danger btn-sm mx-2 d-flex mr-auto" href="/logout">Logout</a>
       </li>

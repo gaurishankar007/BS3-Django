@@ -45,3 +45,20 @@ def update_user_to_admin(request, user_id):
     user.save()
     messages.add_message(request, messages.SUCCESS, 'User has been updated to Admin')
     return redirect('/admins-dashboard')
+
+
+@login_required
+@admin_only
+def admin_register_user(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            Profile.objects.create(user=user, username=user.username)
+            messages.add_message(request, messages.SUCCESS, 'User Registered Successfully')
+            return redirect('/admins-dashboard')
+        else:
+            messages.add_message(request, messages.ERROR, 'Unable to Register User')
+            return render(request, 'admins/AdminRegister.html', {'form': form})
+    context = {'form': UserCreationForm}
+    return render(request, 'admins/AdminRegister.html', context)

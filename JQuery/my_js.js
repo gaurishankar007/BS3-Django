@@ -11,7 +11,7 @@ var a = 10;
 b = 20;
 let c = 30;
 
-myFun = () => // Different way to call a function
+myFun  () => // Different way to call a function
   {
     let z = 100;
     if (z == 100);
