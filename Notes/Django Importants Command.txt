@@ -1,0 +1,5 @@
+1.Create a new django project=> django-admin startproject project_name
+2.Run django server => python manage.py runserver
+3.Running django server on port 4000 instead of default 8000=> python manage.py runserver 4000.
+4.Create app in django=> python manage.py startapp app_name
+5.Create superuser in django=> python manage.py createsuperuser

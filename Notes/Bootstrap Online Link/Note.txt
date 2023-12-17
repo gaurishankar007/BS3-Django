@@ -1,0 +1,3 @@
+1.Inside head put CSS Link
+2.Inside body put JQuery Link at first then only put Bundle Link.
+3.Put JQuery and Bundle link at the last of body.

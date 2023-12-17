@@ -1,0 +1,54 @@
+Useful Classes
+.container
+
+.container-fluid
+
+.row
+
+.col-sm-1, .col-md-1, .col-lg-1, .col-xl-1 (.col-sm-1 to .col-sm-12)
+
+.bg-primary, .bg-secondary, .bg-warning, .bg-success and so on
+
+.pl-0, .pl-1, .pl-2, .pl-3, .pl-4, .pl-5 (pr, pt, pl, px, py) (mx, my, mt, mb, ml, mr)
+
+.h1 to .h6
+
+.table, .table-responsive, .table-dark, .table-striped, .table-hover
+
+.btn, .btn-primary, .btn-outline-primary, .btn-sm, .btn-lg
+
+.alert, .alert-success, .alert-danger
+
+.badge, .badge-primary, .badge-pill
+
+.card, .card-header, .card-img-top, .card-body, .card-title, .card-subtitle, .card-text, .card-footer
+
+.form, .form-group, .form-control, .form-control-file
+
+.modal, .modal-dialog, .modal-content, .modal-header, .modal-body, .modal-footer
+
+.navbar, .navbar-light, .navbar-brand, .navbar-collapse, .navbar nav, .nav-item, .nav-link
+
+.dropdown, .dropdown-menu, .dropdown-item
+
+.rounded, .rounded-top, .rounded-right, .rounded-bottom, .rounded-left, .rounded-circle, .rounded-pill
+
+.text-primary, .text-secondary, .text-success …
+
+.text-white, .text-dark, .text-muted
+
+.text-right, .text-justify, .text-left, .text-center
+
+.text-uppercase, .text-lowercase, .text-capitalize
+
+.d-flex
+
+.justify-content-start, .justify-content-end, .justify-content-center, .justify-content-around, .justify-content-between
+
+.align-items-center, .align-items-start, .align-items-end
+
+.img-responsive, .img-thumbnail, .rounded, .rounded-circle
+
+.shadow-sm, .shadow, .shadow-lg
+
+.list-unstyled
